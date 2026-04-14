@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체험학습 직관 가이드</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f2f5; margin: 0; padding: 10px; }
+        .card { background: white; border-radius: 12px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .img-box { width: 100%; height: 250px; background: #eee; position: relative; display: flex; align-items: center; justify-content: center; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .content { padding: 15px; }
+        .badge { background: #2db743; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .title { font-size: 19px; font-weight: bold; margin: 10px 0; color: #111; }
+        .guide-box { background: #fff9db; padding: 12px; border-radius: 8px; border-left: 5px solid #f1c40f; font-size: 15px; line-height: 1.6; color: #444; }
+    </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+    // PNG 파일 형식에 맞춰 이미지 경로 수정
+    const data = [
+        {step: 1, title: "1. 버스 하차 (와룡동 2-86)", img: "img01.png", guide: "버스 승하차장이 동일합니다.  내린 자리를 확인하고 아이들 대열을 정비하세요."},
+        {step: 2, title: "2. 창경궁 입구 집합", img: "img02.png", guide: "조별로 함께 이동합니다.  입구 전경과 아이들 동선을 체크하세요."},
+        {step: 3, title: "3. 창경궁 출구 이동", img: "img03.png", guide: "관람 후 들어온 곳으로 다시 나옵니다. "},
+        {step: 4, title: "4. 1차: 창덕궁 소극장", img: "img04.png", guide: "대각선 방향으로 위로 이동하세요. "},
+        {step: 5, title: "5. 2차: 카페 싸리분별", img: "img05.png", guide: "카페 방향으로 이동합니다.  좁은 길 안전에 유의하세요."},
+        {step: 6, title: "6. 3차: 성균관대 입구", img: "img06.png", guide: "학교 입구 방향으로 이동합니다. "},
+        {step: 7, title: "7. 4차: 학교 내부 진입", img: "img07.png", guide: "위로 계속 올라갑니다. "},
+        {step: 8, title: "8. 점심: 은행골 식당", img: "img08.png", guide: "600주년 기념관 지하 1층 '은행골 식당'입니다. "},
+        {step: 9, title: "9. 금잔디 광장 샛길", img: "img09.png", guide: "광장 옆 조그마한 샛길로 이동합니다. [cite: 1, 2]"},
+        {step: 10, title: "10. 공연: 경영대 소극장", img: "img10.png", guide: "관람 후 다시 아래로 이동합니다. "},
+        {step: 11, title: "11. 최종 집합: 비천당", img: "img11.png", guide: "비천당 공터에 집합 후 함께 버스 승차장으로 이동합니다. "}
+    ];
+
+    const app = document.getElementById('app');
+    data.forEach(item => {
+        app.innerHTML += `
+            <div class="card">
+                <div class="img-box">
+                    <img src="${item.img}" alt="${item.title}" onerror="this.parentElement.innerHTML='<p style=padding:20px;text-align:center;color:#999;>${item.step}번 이미지(${item.img})를<br>찾을 수 없습니다.</p>'">
+                </div>
+                <div class="content">
+                    <span class="badge">STEP ${item.step}</span>
+                    <div class="title">${item.title}</div>
+                    <div class="guide-box"><strong>📌 인솔 가이드:</strong><br>${item.guide}</div>
+                </div>
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
